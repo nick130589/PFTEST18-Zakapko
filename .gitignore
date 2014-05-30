@@ -1,9 +1,15 @@
 *.class
+*.jar
+*.war
+*.ear
 
 # Ignored file
-adressbook-silenium-tests/.metadata/*
-adressbook-silenium-tests/.settings/*
-adressbook-silenium-tests/test-output/*
+test-output/
+bin/
+.settings
+.classpath
+.project
+.metadata
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
