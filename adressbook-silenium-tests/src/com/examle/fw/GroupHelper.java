@@ -39,13 +39,14 @@ public class GroupHelper extends HelperBase {
 	}
 
 	public void initGroupModification(int index) {
+		//button edit group
 		selectGroupByIndex(index);
 		click(By.name("edit"));
 		
 	}
 
 	public void submitGroupModification() {
-		// TODO Auto-generated method stub
+		//submit group update
 		click(By.name("update"));
 	}
 
