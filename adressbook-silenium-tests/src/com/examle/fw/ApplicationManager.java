@@ -8,16 +8,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
-public class ApplicationManager {
+public  class ApplicationManager {
 	public  WebDriver driver;
-	public  String baseUrl;
+	public   String baseUrl;
 	
 	
 	private NavigationHelper navigationHelper;
 	private GroupHelper groupHelper;
 	private ContactHelper contactHelper;
 	
-	public ApplicationManager() {
+	public   ApplicationManager() {
 		driver = new FirefoxDriver();
 	    baseUrl = "http://localhost/";
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
