@@ -55,10 +55,12 @@ public class ContactHelper extends HelperBase {
 	}
 	
 	private void selectContactByIndex(int index) {
+		//submit check contact
 		click(By.xpath("//input[@name='selected[]'][" +index+ "]"));
 	}
 
 	public void submitContactDelete() {
+		//submit contact Delete
 		click(By.xpath("//input[@name='update'][@value='Delete']"));
 		
 	}
