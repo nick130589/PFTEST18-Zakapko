@@ -64,6 +64,7 @@ public class ContactHelper extends HelperBase {
 	}
 
 	public void submitContactModification() {
+		//submit contact update
 		click(By.name("update"));
 		
 	}
