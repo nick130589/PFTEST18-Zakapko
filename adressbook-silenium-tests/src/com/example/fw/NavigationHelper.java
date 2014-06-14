@@ -1,4 +1,4 @@
-package com.examle.fw;
+package com.example.fw;
 
 import org.openqa.selenium.By;
 
