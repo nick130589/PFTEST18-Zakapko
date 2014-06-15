@@ -39,13 +39,19 @@ public class ContactData implements Comparable<ContactData> {
 		this.phone2 = phone2;
 	}
 
+	
+
+
 	@Override
 	public String toString() {
 		return "ContactData [firstname=" + firstname + ", lastname=" + lastname
-				+ "]";
+				+ ", address=" + address + ", phonehome=" + phonehome
+				+ ", phonemobile=" + phonemobile + ", phonework=" + phonework
+				+ ", email=" + email + ", email2=" + email2 + ", dayborn="
+				+ dayborn + ", monthborn=" + monthborn + ", yearborn="
+				+ yearborn + ", namegroup=" + namegroup + ", address2="
+				+ address2 + ", phone2=" + phone2 + "]";
 	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -55,6 +61,7 @@ public class ContactData implements Comparable<ContactData> {
 		//result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -78,16 +85,19 @@ public class ContactData implements Comparable<ContactData> {
 		return true;
 	}
 
+
 	@Override
 	public int compareTo(ContactData other) {
+		
+		//return  this.lastname.toLowerCase().compareTo(other.lastname.toLowerCase());
 		int lastnameresult = this.lastname.toLowerCase().compareTo(other.lastname.toLowerCase());
 		if (lastnameresult != 0) {
-		  return lastnameresult;
+		return lastnameresult;
 		} else {
-		  return this.firstname.toLowerCase().compareTo(other.firstname.toLowerCase());
-		}
-		
+		return this.firstname.toLowerCase().compareTo(other.firstname.toLowerCase());
+		}		
 	}
+
 	
 	
 }

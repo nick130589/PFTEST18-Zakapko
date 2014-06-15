@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class NavigationHelper extends HelperBase {
 
-	public NavigationHelper(ApplicationManager manager) {
+	protected NavigationHelper(ApplicationManager manager) {
 		super(manager);
 		
 	}
@@ -15,6 +15,16 @@ public class NavigationHelper extends HelperBase {
 
 	public void gotoGroupsPage() {
 	  click(By.linkText("groups"));
+	}
+	
+	public void initContactCreation() {
+		//init add new contact
+	    click(By.linkText("add new"));
+	}
+	
+	public void returnToContactPage() {
+		//return to contact page
+		click(By.linkText("home page"));
 	}
 
 }

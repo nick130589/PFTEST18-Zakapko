@@ -16,10 +16,7 @@ public class ContactHelper extends HelperBase {
 		super(manager);
 	}
 
-	public void initContactCreation() {
-		//init add new contact
-	    click(By.linkText("add new"));
-	}
+
 
 	public void fillContactForm(ContactData contact) {
 		// fill contact form
@@ -45,47 +42,54 @@ public class ContactHelper extends HelperBase {
 		//submit contact creation
 		click(By.name("submit"));
 	}
-
-	public void returnToContactPage() {
-		//return to contact page
-		click(By.linkText("home page"));
+	
+	
+	public void deleteContact(int index) {
+		selectContactByIndex(index);
+		editContactByIndex(index);
+		deleteContactButton();
+		
 	}
 	
-	
-	public void editContact(int index) {
-		//click(By.name("selected[]"));
-		selectContactByIndex(index);
-		click(By.xpath("//img[@alt='Edit']"));
+	private void deleteContactButton() {
+		click(By.xpath("(//input[@name='update'])[2]"));//button delete
 	}
 	
 	private void selectContactByIndex(int index) {
 		//submit check contact
-		click(By.xpath("//input[@name='selected[]'][" +(index+1)+ "]"));
+		click(By.xpath("//tr[@name='entry']["+(index+1)+"]//input[@name='selected[]']"));
+		
 	}
 
-	public void submitContactDelete() {
-		//submit contact Delete
-		click(By.xpath("//input[@name='update'][@value='Delete']"));
+	private void editContactByIndex(int index) {
+		click(By.xpath("//tr[@name='entry']["+(index+1)+"]//img[@ alt = 'Edit']"));
 		
+	}
+	
+	public void initContactModification(int index) {
+		selectContactByIndex(index);
+		editContactByIndex(index);
 	}
 
 	public void submitContactModification() {
-		//submit contact update
-		click(By.name("update"));
-		
-	}
-
+		click(By.xpath("(//input[@name='update'])[1]"));//button update
+			}
+	
 	public List<ContactData> getContacts() {
 		List<ContactData> contacts = new ArrayList<ContactData>();
 		List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
-		for (WebElement checkboxe : checkboxes) {
-			ContactData contact = new ContactData();
-			String title= checkboxe.getAttribute("title");
-			contact.firstname =title.substring("Select (".length(), title.indexOf(" ", "Select (".length()));
-			contact.lastname =title.substring("Select (".length()+contact.firstname.length()+1,title.length()-" ".length());
+		for (WebElement checkbox : checkboxes) {
+			ContactData contact =new ContactData(); 
+			String title =checkbox.getAttribute("title");
+			
+			contact.firstname = title.substring("Select (".length(), title.indexOf(" ", "Select (".length()));
+			contact.lastname =title.substring("Select (".length()+contact.firstname.length()+1, title.length()-" ".length());;
+			
 			contacts.add(contact);
 		}
 		return contacts;
+		
 	}
-
+	
+	
 }
