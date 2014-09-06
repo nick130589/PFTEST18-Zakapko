@@ -35,7 +35,7 @@ public class ContactHelper extends HelperBase {
 		    selectByText(By.name("bmonth"), contact.monthborn);
 		    type(By.name("byear"), contact.yearborn);
 		    //selectByText(By.name("new_group"), contact.namegroup);
-		    if(formType = CREATION){
+		    if(formType == CREATION){
 		    //selectByText(By.name("new_group"), "aaa");
 		    } else {
 		    	if(driver.findElements(By.name("new_group")).size()!=0) {

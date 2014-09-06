@@ -7,9 +7,6 @@ import java.util.Collections;
 
 import java.util.List;
 
-
-
-
 import static com.example.fw.ContactHelper.CREATION;
 
 public class ContactCreationTests extends TestBase {

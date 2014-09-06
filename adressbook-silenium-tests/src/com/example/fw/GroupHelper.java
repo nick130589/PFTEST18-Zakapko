@@ -24,7 +24,7 @@ public class GroupHelper extends HelperBase {
 	}
 	
 	private void rebuildCache() {
-		SortedListOf<GroupData> cachedGroups = new SortedListOf<GroupData>();
+		cachedGroups = new SortedListOf<GroupData>();
 		
 		manager.navigateTo().groupsPage();
 	    List<WebElement> checkboxes = driver.findElements(By.name("selected[]"));
@@ -109,9 +109,9 @@ public class GroupHelper extends HelperBase {
 		return this;
 	}
 	
-	public GroupHelper submitGroupDeletion() {
+	public void submitGroupDeletion() {
 		click(By.name("delete"));
 		cachedGroups = null;
-		return this;
+		//return this;
 	}	
 }
